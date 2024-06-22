@@ -1,9 +1,11 @@
 import express from "express";
-import pool  from "../src/data.js"
+import productsrouters from "../src/routes/productsroutes.js";
 const app = express();
 
+app.use("/products", productsrouters);
+
 app.get("/",(req, res) =>{
- res.send("you have hit the home endpoint")
+ res.send("you have hit the product endpoint")
 })
 
 app.listen (3000,() => {
