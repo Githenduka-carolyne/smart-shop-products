@@ -1,4 +1,5 @@
 import express from "express";
+import pool  from "../src/data.js"
 const app = express();
 
 app.get("/",(req, res) =>{
