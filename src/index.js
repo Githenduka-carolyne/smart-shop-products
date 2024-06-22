@@ -1,8 +1,10 @@
 import express from "express";
-import productsrouters from "../src/routes/productsroutes.js";
+import productsrouters from "./routes/products.routes.js";
 const app = express();
 
 app.use("/products", productsrouters);
+app.use(express.json());
+
 
 app.get("/",(req, res) =>{
  res.send("you have hit the product endpoint")
