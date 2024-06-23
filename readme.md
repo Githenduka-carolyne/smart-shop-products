@@ -35,6 +35,18 @@ Initialize a new Node.js project. Use __npm init__ to create a new project with 
 
 * If you want, install nodemon: __npm install nodemon__
 
+## Configure environment variables
+
+   Create a __.env file__ in the root of the project and add the following environment variables. Replace the placeholders with your actual PostgreSQL configuration details:
+
+   bash/terminal
+   * PORT=your_port
+   * DB_HOST=localhost
+   * DB_USER=your_db_user
+   * DB_PASSWORD=your_db_password
+   * DB_NAME=your_db_name
+
+
 ## Set up PostgreSQL
 
 -Ensure __PostgreSQL__ is installed and running on your machine.
