@@ -36,27 +36,27 @@ router.post("/", async (req, res) => {
   if (!productthumbnail)
     return res
       .status(400)
-      .json({ success: false, message: "Product thumbnail field is required" });
+      .json({ success: false, message: "Productthumbnail required" });
   if (!producttitle)
     return res
       .status(400)
-      .json({ success: false, message: "Product title field is required" });
+      .json({ success: false, message: "Producttitle required" });
   if (!productdescription)
     return res.status(400).json({
       success: false,
-      message: "Product description field is required",
+      message: "Productdescription required",
     });
   if (!productcost)
     return res
       .status(400)
-      .json({ success: false, message: "Product cost field is required" });
+      .json({ success: false, message: "Productcost required" });
   if (!onoffer)
     return res
       .status(400)
-      .json({ success: false, message: "Onoffer field is required" });
+      .json({ success: false, message: "onoffer required" });
   try {
     const result = await pool.query(
-      "INSERT INTO products (productThumbnail, productTitle, productDescription, productCost, onOffer) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO products (productthumbnail, producttitle, productdescription, productcost, onoffer) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
         productthumbnail,
         producttitle,
@@ -84,31 +84,31 @@ router.patch("/:id", async (req, res) => {
     let updateProduct;
     if (productthumbnail) {
       updateProduct = await pool.query(
-        "UPDATE Products SET productthumbnail=$1 WHERE id=$2",
+        "UPDATE products SET productthumbnail=$1 WHERE id=$2",
         [productthumbnail, id],
       );
     }
     if (producttitle) {
       updateProduct = await pool.query(
-        "UPDATE Products SET producttitle=$1 WHERE id=$2",
+        "UPDATE products SET producttitle=$1 WHERE id=$2",
         [producttitle, id],
       );
     }
     if (productdescription) {
       updateProduct = await pool.query(
-        "UPDATE Products SET productdescription=$1 WHERE id=$2",
+        "UPDATE products SET productdescription=$1 WHERE id=$2",
         [productdescription, id],
       );
     }
     if (productcost) {
       updateProduct = await pool.query(
-        "UPDATE Products SET productcost=$1 WHERE id=$2",
+        "UPDATE products SET productcost=$1 WHERE id=$2",
         [productcost, id],
       );
     }
     if (onoffer) {
       updateProduct = await pool.query(
-        "UPDATE Products SET onoffer=$1 WHERE id=$2",
+        "UPDATE products SET onoffer=$1 WHERE id=$2",
         [onoffer, id],
       );
     }
